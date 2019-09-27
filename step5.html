@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>D3.js example</title>
+<script src="lib/d3.v5.min.js"></script>
+</head>
+<body>
+<div id="target"></div>
+<button id="update" type=button onclick="change()">Change</button>
+</body>
+<script>
+var target = d3.select("#target"); // 1.
+function update(data){
+  var elements = target.selectAll("p").data(data); // 2. 3.
+  elements.exit().remove(); // 4. 5.
+  elements.enter().append("p").merge(elements) // 6. 7. 8.
+    .text(function(d){ return "color: " + d; }) // 9.
+    .style("color", function(d){ return d; }); // 10.
+}
+function change(){
+  update(["red", "black", "blue", "gray"]);
+}
+update(["red", "blue", "green"]);
+</script>
+</html>

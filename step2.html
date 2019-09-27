@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>D3.js example</title>
+<script src="lib/d3.v5.min.js"></script>
+</head>
+<body>
+<div id="target">
+<p>Hello D3.js</p>
+<button type=button onclick="change()">Change</button>
+</div>
+</body>
+<script>
+var target = d3.select("#target"); // 1.
+function change(){
+  target.select("p") // 2.
+    .style("color", "red"); // 3.
+}
+</script>
+</html>
